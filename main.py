@@ -6,6 +6,12 @@ def encode(password):
     for i in password:
         encoded_string += encode_dict[i]
     return encoded_string
+def decode(new_password):
+    orig_password = ''
+    for digit in new_password:
+        orig_digit = int(digit) - 3
+        orig_password += str(orig_digit)
+    return orig_password
 
 
 if __name__ == '__main__':
@@ -18,6 +24,7 @@ if __name__ == '__main__':
             print("Your password has been encoded and stored")
             encoded_password = encode(original_password)
         elif option == 2:
+            original_password = decode(encoded_password)
             print(f"The encoded password is {encoded_password}, and the original password is {original_password}.")
         elif option == 3:
             keep_going = False
